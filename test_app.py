@@ -6,7 +6,7 @@ def test_home():
     response = client.get("/")
 
     assert response.status_code == 200
-    assert response.data == b"CI/CD Demo App"
+    assert response.data == b"Wassup my gang! Welcome to the CI/CD Demo App"
 
 
 def test_health():
