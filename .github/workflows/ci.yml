@@ -34,8 +34,14 @@ jobs:
 
       - name: Build Docker image
         if: github.event_name == 'push'
-        run: docker build -t danishabdal/cicd-python-app:latest .
+        run: |
+          docker build \
+          -t danishabdal/cicd-python-app:v2 \
+          -t danishabdal/cicd-python-app:latest .
 
       - name: Push Docker image
-        if: github.event_name == 'push'
-        run: docker push danishabdal/cicd-python-app:latest
+        if: github.event_name == 'push' 
+        run: |
+            docker push danishabdal/cicd-python-app:v2
+            docker push danishabdal/cicd-python-app:latest
+            
